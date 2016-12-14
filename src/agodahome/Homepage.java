@@ -1,9 +1,7 @@
 package agodahome;
 
-import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -87,11 +85,11 @@ public class Homepage {
 
 		int rowid = spreadsheet.getPhysicalNumberOfRows(); // spreadsheet.getLastRowNum()
 															// + 1;
-		// System.out.println(rowid);
+		// System.out.println(rowid+" or "+spreadsheet.getLastRowNum());
 		// ===set ID
 		Row row1 = spreadsheet.getRow(rowid - 1);
 		Cell cell1 = row1.getCell(0);
-
+		//System.out.println(cell1.getStringCellValue()+ "The value is " );
 		String ids = Integer.parseInt(cell1.getStringCellValue()) + 1 + "";
 		// System.out.println(ids + "test");
 		// =====
@@ -145,7 +143,7 @@ public class Homepage {
 		// ====Print excel data
 		if (rowid != -1) { // found id
 			System.out
-					.println("[ID]\t\t[Name]\t\t[Country]\t\t[City]\t\t[Street]"
+					.println("[IDs]\t\t[Name]\t\t[Country]\t\t[City]\t\t[Street]"
 							+ "\t\t[Telephone]\t\t[StarRanking]\t\t[Rooms]\t\t[Description]");
 			printexcel(spreadsheet, rowid);
 			System.out.print("\nWhat's index = ");
@@ -303,7 +301,7 @@ public class Homepage {
 		if (myList.size() > 0) {
 			// ====Print excel data
 			System.out
-					.println("[ID]\t\t[Name]\t\t[Country]\t\t[City]\t\t[Street]"
+					.println("[IDs]\t\t[Name]\t\t[Country]\t\t[City]\t\t[Street]"
 							+ "\t\t[Telephone]\t\t[StarRanking]\t\t[Rooms]\t\t[Description]");
 			for (int i = 0; i < myList.size(); i++) {
 				printexcel(spreadsheet, myList.get(i));
